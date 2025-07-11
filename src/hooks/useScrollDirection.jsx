@@ -1,34 +1,38 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function useScrollDirection() {
     const [scrollDirection, setScrollDirection] = useState('none');
-    const [lastScrollY, setLastScrollY] = useState(0);
+    const lastScrollY = useRef(0);
+    const throttleTimeout = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
-            const currentScrollY = window.scrollY;
+            if (throttleTimeout.current === null) {
+                throttleTimeout.current = setTimeout(() => {
+                    const currentScrollY = window.scrollY;
 
-            if (currentScrollY > lastScrollY) {
-                if (scrollDirection !== 'down') {
-                    console.log('down');
-                    setScrollDirection('down');
-                }
-            } else if (currentScrollY < lastScrollY) {
-                if (scrollDirection !== 'up') {
-                    console.log('up');
-                    setScrollDirection('up');
-                }
-            } else {
-                setScrollDirection('none');
+                    setScrollDirection(prev => {
+                        if (currentScrollY > lastScrollY.current && prev !== 'down') {
+                            return 'down';
+                        }
+                        if (currentScrollY < lastScrollY.current && prev !== 'up') {
+                            return 'up';
+                        }
+                        return prev;
+                    });
+
+                    lastScrollY.current = currentScrollY;
+                    throttleTimeout.current = null;
+                }, 100);
             }
-
-            setLastScrollY(currentScrollY);
         };
 
         window.addEventListener('scroll', handleScroll);
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [lastScrollY, scrollDirection]);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (throttleTimeout.current) clearTimeout(throttleTimeout.current);
+        };
+    }, []);
 
     return scrollDirection;
 }
