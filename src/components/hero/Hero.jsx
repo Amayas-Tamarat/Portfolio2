@@ -1,37 +1,13 @@
+// components/Hero.jsx
+
 import React, { useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Silk from './Noise.jsx'; // Adjust path if needed
+import Silk from './Noise.jsx'; // Adjust if needed
+import ToggleSwitch from '../toggleSwitch/ToggleSwitch.jsx'; // ✅ New import
 
 gsap.registerPlugin(ScrollTrigger);
-
-const ToggleSwitch = ({ enabled, onToggle }) => (
-    <button
-        role="switch"
-        aria-checked={enabled}
-        onClick={onToggle}
-        className={`relative inline-flex h-8 w-20 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
-            enabled ? 'bg-indigo-600' : 'bg-gray-300'
-        }`}
-    >
-    <span
-        className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
-            enabled ? 'translate-x-12' : 'translate-x-1'
-        }`}
-    />
-        <span
-            className={`absolute left-1/2 transform -translate-x-1/2 text-xs font-semibold select-none pointer-events-none ${
-                enabled ? 'text-white' : 'text-gray-700'
-            }`}
-        >
-      {enabled ? 'On' : 'Off'}
-    </span>
-    </button>
-);
-
-
-
 
 const Hero = () => {
     const containerRef = useRef();
@@ -86,7 +62,7 @@ const Hero = () => {
                         />
                     </div>
                 )}
-                <h1 className="text-white text-8xl font-bold mb-4 z-10">SOLID TEXT</h1>
+                <h1 className="text-white text-8xl font-bold mb-4 z-10"> TEXT</h1>
                 <ToggleSwitch
                     enabled={showSilk}
                     onToggle={() => setShowSilk(!showSilk)}
