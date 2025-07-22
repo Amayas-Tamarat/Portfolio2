@@ -13,7 +13,7 @@ export const frontendTech = [
     { label: "React", icon: <FaReact size="1.5em" />, color: "cyan" },
     { label: "Next.js", icon: <SiNextdotjs size="1.5em" />, color: "lime" },
     { label: "TailwindCSS", icon: <SiTailwindcss size="1.5em" />, color: "indigo" },
-    { label: "GSAP", icon: <SiGreensock size="1.5em" />, color: "green" },
+    { label: "GSAP", icon: <SiGreensock size="1.5em" />, color: "black" },
 ];
 
 export const backendTech = [

@@ -7,9 +7,38 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ProfessionalExp = () => {
     const sectionRef = useRef(null);
+    const headingRef = useRef(null);
+    const timelineRef = useRef(null);
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
+            // Heading animation (from right)
+            gsap.from(headingRef.current, {
+                opacity: 0,
+                x: 70,
+                duration: 1,
+                ease: 'power1.out',
+                scrollTrigger: {
+                    trigger: headingRef.current,
+                    start: 'top 60%',
+                    toggleActions: 'play none none reverse',
+                },
+            });
+
+            // Timeline container (from right)
+            gsap.from(timelineRef.current, {
+                opacity: 0,
+                x: 70,
+                duration: 1,
+                ease: 'power1.out',
+                scrollTrigger: {
+                    trigger: timelineRef.current,
+                    start: 'top 70%',
+                    toggleActions: 'play none none reverse',
+                },
+            });
+
+            // Cards animation (fade up)
             gsap.from(".exp-card", {
                 opacity: 0,
                 y: 50,
@@ -33,11 +62,17 @@ const ProfessionalExp = () => {
             className="min-h-screen text-white py-20 px-6 sm:px-12 bg-gradient-to-b from-purple-950 via-red-950 to-black"
         >
             <div className="max-w-4xl mx-auto">
-                <h2 className="text-4xl sm:text-5xl font-bold font-playfair mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
+                <h2
+                    ref={headingRef}
+                    className="text-4xl sm:text-5xl font-bold font-playfair mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500"
+                >
                     Professional Experience
                 </h2>
 
-                <div className="relative border-l-4 border-purple-600 pl-12 flex flex-col gap-10">
+                <div
+                    ref={timelineRef}
+                    className="relative border-l-4 border-purple-600 pl-12 flex flex-col gap-10"
+                >
                     {experiences.map((exp, index) => (
                         <div
                             key={index}
