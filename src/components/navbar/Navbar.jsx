@@ -28,8 +28,8 @@ const Navbar = () => {
 
             {/* Right: Nav Links */}
             <div className="hidden md:flex space-x-8 text-xs uppercase tracking-widest text-outline">
-                <a href="#projects" className="hover:text-white transition">Projects</a>
                 <a href="#about" className="hover:text-white transition">About</a>
+                <a href="#projects" className="hover:text-white transition">Projects</a>
                 <a href="#contact" className="hover:text-white transition">Contact</a>
             </div>
 
@@ -67,8 +67,8 @@ const Navbar = () => {
                         : 'opacity-0 scale-y-0 pointer-events-none'
                 }`}
             >
-                <a href="#projects" className="uppercase text-sm text-white">Projects</a>
                 <a href="#about" className="uppercase text-sm text-white">About</a>
+                <a href="#projects" className="uppercase text-sm text-white">Projects</a>
                 <a href="#contact" className="uppercase text-sm text-white">Contact</a>
             </div>
         </nav>
