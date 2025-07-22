@@ -8,11 +8,11 @@ import AboutMe from "../aboutMe/AboutMe.jsx";
 function App() {
 
   return (
-      <>
+      <div className="bg-black">
           <Navbar />
           <Hero />
           <AboutMe />
-      </>
+      </div>
   )
 }
 

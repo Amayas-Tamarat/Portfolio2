@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Silk from './Noise.jsx';
 import ToggleSwitch from '../toggleSwitch/ToggleSwitch.jsx';
 import DecryptedText from './DecryptedText';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
     const [showSilk, setShowSilk] = useState(true);
@@ -9,6 +14,27 @@ const Hero = () => {
     useEffect(() => {
         setShowSilk(window.innerWidth > 768);
     }, []);
+
+    useGSAP(() => {
+        if (!showSilk) return;
+
+        gsap.set('#video-frame', {
+            clipPath: 'polygon(0 0, 100% 0, 80% 100%, 20% 100%)',
+            borderRadius: '0 0 40% 10%',
+        });
+
+        gsap.from('#video-frame', {
+            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+            borderRadius: '0 0 0 0',
+            ease: 'power1.inOut',
+            scrollTrigger: {
+                trigger: '#video-frame',
+                start: 'center center',
+                end: 'bottom center',
+                scrub: true,
+            },
+        });
+    }, [showSilk]); // re-run animation if Silk is toggled
 
     const handleScrollToAbout = () => {
         const aboutSection = document.getElementById('about');
@@ -18,7 +44,10 @@ const Hero = () => {
     };
 
     return (
-        <section className="relative h-screen w-full overflow-hidden bg-gradient-to-r from-purple-950 via-red-950 to-black">
+        <section
+            id="video-frame"
+            className="relative h-screen w-full overflow-hidden bg-gradient-to-r from-purple-950 via-red-950 to-black"
+        >
             {showSilk && (
                 <div className="absolute inset-0 z-0 pointer-events-none">
                     <Silk
@@ -49,8 +78,7 @@ const Hero = () => {
 
                     <p className="text-white text-sm sm:text-base mt-4 font-manrope max-w-xl">
                         Innovative FullStack Developer passionate about creating solutions.
-                        Eager to leverage modern technologies to solve real-world problems
-                        and contribute to dynamic team environments.
+                        Eager to leverage modern technologies to solve real-world problems and contribute to dynamic team environments.
                     </p>
 
                     <div className="mt-10 flex gap-6">
