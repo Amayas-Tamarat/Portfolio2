@@ -1,52 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Silk from './Noise.jsx';
 import ToggleSwitch from '../toggleSwitch/ToggleSwitch.jsx';
 import DecryptedText from './DecryptedText';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
     const [showSilk, setShowSilk] = useState(true);
+    const heroRef = useRef(null);
 
     useEffect(() => {
         setShowSilk(window.innerWidth > 768);
     }, []);
 
     useGSAP(() => {
-        if (!showSilk) return;
-
-        gsap.set('#video-frame', {
+        gsap.set(heroRef.current, {
             clipPath: 'polygon(0 0, 100% 0, 80% 100%, 20% 100%)',
             borderRadius: '0 0 40% 10%',
         });
 
-        gsap.from('#video-frame', {
+        gsap.from(heroRef.current, {
             clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
             borderRadius: '0 0 0 0',
             ease: 'power1.inOut',
             scrollTrigger: {
-                trigger: '#video-frame',
-                start: 'center center',
+                trigger: heroRef.current,
+                start: 'top top',
                 end: 'bottom center',
                 scrub: true,
             },
         });
-    }, [showSilk]); // re-run animation if Silk is toggled
+    }, []);
 
     const handleScrollToAbout = () => {
         const aboutSection = document.getElementById('about');
-        if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (aboutSection) aboutSection.scrollIntoView({ behavior: 'smooth' });
     };
 
     return (
         <section
-            id="video-frame"
-            className="relative h-screen w-full overflow-hidden bg-gradient-to-r from-purple-950 via-red-950 to-black"
+            id="hero"
+            ref={heroRef}
+            className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-purple-950 via-red-950 to-black"
         >
             {showSilk && (
                 <div className="absolute inset-0 z-0 pointer-events-none">

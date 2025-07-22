@@ -1,3 +1,7 @@
+import React from 'react';
+import GlassIcons from '../glassIcon/GlassIcon.jsx';
+import techItems from '../../constants/TechList.jsx';
+
 const AboutMe = () => {
     return (
         <section
@@ -5,7 +9,7 @@ const AboutMe = () => {
             className="min-h-screen bg-black text-white py-20 px-6 sm:px-12 flex items-center"
         >
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
-                {/* Left: Image or illustration */}
+                {/* Left: Image */}
                 <div className="flex justify-center">
                     <img
                         src="/your-image.jpg"
@@ -28,16 +32,9 @@ const AboutMe = () => {
                         APIs. When I'm not coding, you'll find me exploring tech blogs or sketching ideas.
                     </p>
 
-                    <div className="mt-6">
-                        <h3 className="text-xl font-semibold mb-2 text-purple-400">Tech Stack</h3>
-                        <ul className="flex flex-wrap gap-4 text-sm text-gray-300">
-                            <li className="bg-gray-800 px-3 py-1 rounded-full">React</li>
-                            <li className="bg-gray-800 px-3 py-1 rounded-full">Node.js</li>
-                            <li className="bg-gray-800 px-3 py-1 rounded-full">TailwindCSS</li>
-                            <li className="bg-gray-800 px-3 py-1 rounded-full">MongoDB</li>
-                            <li className="bg-gray-800 px-3 py-1 rounded-full">Express</li>
-                            <li className="bg-gray-800 px-3 py-1 rounded-full">GSAP</li>
-                        </ul>
+                    <div className="mt-8">
+                        <h3 className="text-xl font-semibold mb-6 text-purple-400">Tech Stack</h3>
+                        <GlassIcons items={techItems} />
                     </div>
                 </div>
             </div>

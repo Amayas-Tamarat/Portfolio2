@@ -11,17 +11,14 @@ const ToggleSwitch = ({ enabled, onToggle }) => (
             enabled ? 'bg-indigo-600' : 'bg-gray-300'
         }`}
     >
-        {/* On text on the left */}
         <span className="absolute left-2 text-xs font-semibold select-none pointer-events-none text-white">
       On
     </span>
 
-        {/* Off text on the right */}
         <span className="absolute right-2 text-xs font-semibold select-none pointer-events-none text-gray-700">
       Off
     </span>
 
-        {/* Circle knob */}
         <span
             className={`inline-block h-6 w-6 transform rounded-full bg-white shadow transition-transform ${
                 enabled ? 'translate-x-12' : 'translate-x-1'
