@@ -13,7 +13,10 @@ const Hero = () => {
     const heroRef = useRef(null);
 
     useEffect(() => {
-        setShowSilk(window.innerWidth > 768);
+        const handleResize = () => setShowSilk(window.innerWidth > 768);
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     useGSAP(() => {
@@ -58,9 +61,9 @@ const Hero = () => {
                 </div>
             )}
 
-            <div className="absolute inset-0 z-10 flex items-center justify-center px-6">
-                <div className="flex flex-col items-center text-center max-w-3xl">
-                    <h1 className="text-white text-5xl sm:text-7xl font-bold mb-6 font-playfair">
+            <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6 lg:px-12">
+                <div className="flex flex-col items-center text-center max-w-2xl sm:max-w-3xl">
+                    <h1 className="text-white text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 font-playfair">
                         Amayas TAMARAT
                     </h1>
 
@@ -69,35 +72,36 @@ const Hero = () => {
                         speed={40}
                         sequential
                         revealDirection="start"
-                        className="text-white text-lg sm:text-2xl font-manrope"
+                        className="text-white text-base sm:text-xl lg:text-2xl font-manrope"
                         encryptedClassName="text-purple-500"
                         animateOn="view"
                     />
 
-                    <p className="text-white text-sm sm:text-base mt-4 font-manrope max-w-xl">
+                    <p className="text-white text-sm sm:text-base lg:text-lg mt-4 font-manrope max-w-xl">
                         Innovative FullStack Developer passionate about creating solutions.
                         Eager to leverage modern technologies to solve real-world problems and contribute to dynamic team environments.
                     </p>
 
-                    <div className="mt-10 flex gap-6">
-                        <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-md transition">
+                    <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto justify-center items-center">
+                        <button className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 sm:py-3 px-6 rounded-md transition">
                             Download CV
                         </button>
-                        <button className="border border-white text-white hover:bg-white hover:text-indigo-600 font-semibold py-3 px-6 rounded-md transition">
+                        <button className="w-full sm:w-auto border border-white text-white hover:bg-white hover:text-indigo-600 font-semibold py-2 sm:py-3 px-6 rounded-md transition">
                             View Projects
                         </button>
                     </div>
 
-                    <div className="mt-10">
+                    <div className="mt-8 sm:mt-10">
                         <ToggleSwitch enabled={showSilk} onToggle={() => setShowSilk(!showSilk)} />
                     </div>
                 </div>
             </div>
 
-            <div className="absolute bottom-6 flex justify-center w-full animate-bounce">
+            {/* Scroll Down Button */}
+            <div className="absolute bottom-4 sm:bottom-6 flex justify-center w-full animate-bounce z-20">
                 <button
                     onClick={handleScrollToAbout}
-                    className="text-white font-manrope text-sm sm:text-base hover:opacity-80 transition"
+                    className="text-white font-manrope text-base hover:opacity-80 transition"
                 >
                     ↓ Scroll Down
                 </button>
