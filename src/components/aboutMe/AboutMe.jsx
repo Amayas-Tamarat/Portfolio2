@@ -32,12 +32,12 @@ const AboutMe = () => {
 
             gsap.from(textRef.current, {
                 opacity: 0,
-                x: 50,
+                x: 70,
                 duration: 1,
-                ease: 'power2.out',
+                ease: 'power1.out',
                 scrollTrigger: {
                     trigger: textRef.current,
-                    start: 'top 80%',
+                    start: 'top 60%',
                     toggleActions: 'play none none reverse',
                 },
             });
@@ -50,7 +50,7 @@ const AboutMe = () => {
         <section
             id="about"
             ref={sectionRef}
-            className="min-h-screen bg-black text-white py-20 px-6 sm:px-12 flex items-center"
+            className="min-h-screen  text-white py-20 px-6 sm:px-12 flex items-center bg-gradient-to-t from-purple-950 via-red-950 to-black"
         >
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full">
                 {/* Left: Image */}
