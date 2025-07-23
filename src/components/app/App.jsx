@@ -5,6 +5,7 @@ import Navbar from "../navbar/Navbar.jsx";
 import Hero from "../hero/Hero.jsx";
 import AboutMe from "../aboutMe/AboutMe.jsx";
 import ProfessionalExp from "../professionalExp/ProfessionalExp.jsx";
+import Project from "../project/Project.jsx";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
           <Hero />
           <AboutMe />
           <ProfessionalExp />
+          <Project />
       </div>
   )
 }

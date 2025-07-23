@@ -50,7 +50,7 @@ const AboutMe = () => {
         <section
             id="about"
             ref={sectionRef}
-            className="min-h-screen  text-white py-20 px-6 sm:px-12 flex items-center bg-gradient-to-t from-purple-950 via-red-950 to-black"
+            className="min-h-screen  text-white py-20 px-6 sm:px-12 flex items-center bg-gradient-to-t from-purple-950 via-red-950 to-black overflow-x-hidden"
         >
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full">
                 {/* Left: Image */}
