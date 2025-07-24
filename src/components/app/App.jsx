@@ -6,6 +6,7 @@ import Hero from "../hero/Hero.jsx";
 import AboutMe from "../aboutMe/AboutMe.jsx";
 import ProfessionalExp from "../professionalExp/ProfessionalExp.jsx";
 import Project from "../project/Project.jsx";
+import Footer from "../footer/Footer.jsx";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <AboutMe />
           <ProfessionalExp />
           <Project />
+          <Footer />
       </div>
   )
 }
