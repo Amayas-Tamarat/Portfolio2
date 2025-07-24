@@ -1,40 +1,92 @@
-import React, { useState } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import useScrollDirection from '../../hooks/useScrollDirection';
+
+const MENU_ITEMS = [
+    {id: '#hero', label: 'Home'},
+    {id: '#about', label: 'About'},
+    {id: '#projects', label: 'Projects'},
+    {id: '#contact', label: 'Contact'},
+];
 
 const Navbar = () => {
     const scrollDirection = useScrollDirection();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const menuRef = useRef(null);
+    const buttonRef = useRef(null);
+
     const toggleMenu = () => {
         setIsMenuOpen(prev => !prev);
     };
 
+    const handleClickOutside = (e) => {
+        if (
+            menuRef.current &&
+            !menuRef.current.contains(e.target) &&
+            buttonRef.current &&
+            !buttonRef.current.contains(e.target)
+        ) {
+            setIsMenuOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMenuOpen]);
+
+    const scrollToSection = (id) => (e) => {
+        e.preventDefault();
+        const section = document.querySelector(id);
+        if (section) {
+            section.scrollIntoView({behavior: 'smooth'});
+            setIsMenuOpen(false); // close menu on click
+        }
+    };
+
+    const renderLinks = (isMobile = false) =>
+        MENU_ITEMS.map(({id, label}) => (
+            <a
+                key={id}
+                href={id}
+                onClick={scrollToSection(id)}
+                className={
+                    isMobile
+                        ? 'uppercase text-sm tracking-wide text-purple-300 hover:text-white transition-colors duration-200'
+                        : 'hover:text-white transition relative after:absolute after:left-0 after:-bottom-1 ' +
+                        'after:h-[2px] after:w-full after:bg-white after:scale-x-0 after:origin-left' +
+                        ' hover:after:scale-x-100 after:transition-transform'
+                }
+            >
+                {label}
+            </a>
+        ));
+
     return (
         <nav
-            className={`fixed top-0 left-0 w-full flex items-center justify-between px-8 py-6 z-50 transition-transform duration-500 bg-transparent ${
+            className={`fixed top-0 left-0 w-full flex items-center justify-between px-8 py-6 z-50
+             transition-transform duration-500 bg-transparent
+              ${
                 scrollDirection === 'down' && !isMenuOpen ? '-translate-y-full' : 'translate-y-0'
-            }`}
+            }
+            `}
         >
-            {/* Left: Logo or Tagline */}
-            <div className="text-xs uppercase tracking-widest text-outline">
-                <span className="block md:hidden text-2xl font-serif uppercase">Loren</span>
-                <span className="hidden md:block">test, Test</span>
+            {/* Left: Logo */}
+            <div className="flex items-center">
+                <img src="/assets/Fichier_3.png" alt="Logo" className="h-12 sm:h-16 object-contain"/>
             </div>
 
-            {/* Center: Logo */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 text-3xl font-serif uppercase hidden md:block text-outline">
-                Loren
-            </div>
-
-            {/* Right: Nav Links */}
+            {/* Desktop Nav */}
             <div className="hidden md:flex space-x-8 text-xs uppercase tracking-widest text-outline">
-                <a href="#about" className="hover:text-white transition">About</a>
-                <a href="#projects" className="hover:text-white transition">Projects</a>
-                <a href="#contact" className="hover:text-white transition">Contact</a>
+                {renderLinks(false)}
             </div>
 
-            {/* Burger Menu */}
-            <div className="md:hidden">
+            {/* Burger Button */}
+            <div className="md:hidden" ref={buttonRef}>
                 <button
                     aria-label="Toggle menu"
                     aria-expanded={isMenuOpen}
@@ -45,31 +97,35 @@ const Navbar = () => {
               className={`block absolute h-0.5 w-6 bg-white transition duration-300 ease-in-out ${
                   isMenuOpen ? 'rotate-45 top-3' : 'top-2'
               }`}
-          ></span>
+          />
                     <span
                         className={`block absolute h-0.5 w-6 bg-white transition duration-300 ease-in-out top-4 ${
                             isMenuOpen ? 'opacity-0' : 'opacity-100'
                         }`}
-                    ></span>
+                    />
                     <span
                         className={`block absolute h-0.5 w-6 bg-white transition duration-300 ease-in-out ${
                             isMenuOpen ? '-rotate-45 top-3' : 'top-6'
                         }`}
-                    ></span>
+                    />
                 </button>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Bubble Menu */}
             <div
-                className={`absolute top-full left-0 w-full bg-black/80 flex flex-col items-center space-y-4 py-4 shadow-md md:hidden transition-all duration-300 transform origin-top ${
+                ref={menuRef}
+                className={`absolute top-full right-0 w-1/2 rounded-l-3xl mr-4 bg-gradient-to-b
+                            from-black via-zinc-900 to-purple-950 backdrop-blur-md flex flex-col items-center
+                             space-y-6 py-6 px-4 shadow-xl border-2 border-solid border-fuchsia-600 md:hidden
+                             transition-all duration-500 ease-out transform
+                    ${
                     isMenuOpen
-                        ? 'opacity-100 scale-y-100 pointer-events-auto'
-                        : 'opacity-0 scale-y-0 pointer-events-none'
-                }`}
+                        ? 'opacity-100 translate-x-0 pointer-events-auto'
+                        : 'opacity-0 translate-x-full pointer-events-none'
+                }
+                          `}
             >
-                <a href="#about" className="uppercase text-sm text-white">About</a>
-                <a href="#projects" className="uppercase text-sm text-white">Projects</a>
-                <a href="#contact" className="uppercase text-sm text-white">Contact</a>
+                {renderLinks(true)}
             </div>
         </nav>
     );

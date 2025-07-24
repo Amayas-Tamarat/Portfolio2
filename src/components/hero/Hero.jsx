@@ -63,7 +63,7 @@ const Hero = () => {
 
             <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6 lg:px-12">
                 <div className="flex flex-col items-center text-center max-w-2xl sm:max-w-3xl">
-                    <h1 className="text-white text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 font-playfair">
+                    <h1 className="text-white text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 font-serif">
                         Amayas TAMARAT
                     </h1>
 
