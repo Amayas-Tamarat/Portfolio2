@@ -59,7 +59,7 @@ const ProfessionalExp = () => {
         <section
             id="experience"
             ref={sectionRef}
-            className="min-h-screen text-white py-20 px-6 sm:px-12 bg-gradient-to-b from-purple-950 via-red-950 to-black overflow-x-hidden"
+            className="min-h-screen text-white py-20 px-6 sm:px-12 bg-gradient-to-b from-purple-950 via-zinc-900 to-black overflow-x-hidden"
         >
             <div className="max-w-4xl mx-auto">
                 <h2

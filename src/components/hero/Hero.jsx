@@ -47,7 +47,7 @@ const Hero = () => {
         <section
             id="hero"
             ref={heroRef}
-            className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-purple-950 via-red-950 to-black"
+            className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-purple-950 via-zinc-900 to-black"
         >
             {showSilk && (
                 <div className="absolute inset-0 z-0 pointer-events-none">
