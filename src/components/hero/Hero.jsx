@@ -1,23 +1,16 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, { useRef } from 'react';
 import Silk from './Noise.jsx';
 import ToggleSwitch from '../toggleSwitch/ToggleSwitch.jsx';
 import DecryptedText from './DecryptedText';
-import {useGSAP} from '@gsap/react';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-    const [showSilk, setShowSilk] = useState(true);
+    const [showSilk, setShowSilk] = React.useState(true);
     const heroRef = useRef(null);
-
-    useEffect(() => {
-        const handleResize = () => setShowSilk(window.innerWidth > 768);
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
 
     useGSAP(() => {
         gsap.set(heroRef.current, {
@@ -40,7 +33,7 @@ const Hero = () => {
 
     const scrollToSection = (id) => {
         const section = document.getElementById(id);
-        if (section) section.scrollIntoView({behavior: 'smooth'});
+        if (section) section.scrollIntoView({ behavior: 'smooth' });
     };
 
     return (
@@ -51,7 +44,7 @@ const Hero = () => {
         >
             {showSilk && (
                 <div className="absolute inset-0 z-0 pointer-events-none">
-                    <Silk speed={5} scale={1} color="#380639" noiseIntensity={1.5} rotation={0}/>
+                    <Silk speed={5} scale={1} color="#380639" noiseIntensity={1.5} rotation={0} />
                 </div>
             )}
 
@@ -77,24 +70,18 @@ const Hero = () => {
                         team environments.
                     </p>
 
-                    <div
-                        className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto justify-center items-center">
+                    <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto justify-center items-center">
                         <a
                             href="/assets/Amayas_Tamarat_DÉVELOPPEUR_WEB-.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full sm:w-auto bg-indigo-600
-                             hover:bg-indigo-700 text-white font-semibold
-                             py-2 sm:py-3 px-6 rounded-md transition transform
-                             hover:scale-105 hover:shadow-lg"
+                            className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 sm:py-3 px-6 rounded-md transition transform hover:scale-105 hover:shadow-lg"
                         >
                             Download CV
                         </a>
                         <button
                             onClick={() => scrollToSection('projects')}
-                            className="w-full sm:w-auto border border-white text-white
-                             hover:bg-white hover:text-indigo-600 font-semibold py-2 sm:py-3 px-6
-                              rounded-md transition transform hover:scale-105 hover:shadow-lg"
+                            className="w-full sm:w-auto border border-white text-white hover:bg-white hover:text-indigo-600 font-semibold py-2 sm:py-3 px-6 rounded-md transition transform hover:scale-105 hover:shadow-lg"
                         >
                             View Projects
                         </button>
@@ -171,7 +158,7 @@ const Hero = () => {
 
                     {/* Toggle Switch */}
                     <div className="mt-6 flex justify-center">
-                        <ToggleSwitch enabled={showSilk} onToggle={() => setShowSilk(!showSilk)}/>
+                        <ToggleSwitch enabled={showSilk} onToggle={() => setShowSilk(!showSilk)} />
                     </div>
                 </div>
             </div>
