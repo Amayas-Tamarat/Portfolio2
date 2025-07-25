@@ -72,7 +72,7 @@ const Hero = () => {
 
                     <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto justify-center items-center">
                         <a
-                            href="/assets/Amayas_Tamarat_DÉVELOPPEUR_WEB-.pdf"
+                            href="/Amayas_Tamarat_DÉVELOPPEUR_WEB-.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white
