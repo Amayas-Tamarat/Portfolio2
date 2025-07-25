@@ -55,7 +55,7 @@ const Hero = () => {
                     </h1>
 
                     <DecryptedText
-                        text="Web Developer FullStack"
+                        text="Développeur Web FullStack"
                         speed={40}
                         sequential
                         revealDirection="start"
@@ -65,9 +65,8 @@ const Hero = () => {
                     />
 
                     <p className="text-white text-sm sm:text-base lg:text-lg mt-4 font-manrope max-w-xl">
-                        Innovative FullStack Developer passionate about creating solutions.
-                        Eager to leverage modern technologies to solve real-world problems and contribute to dynamic
-                        team environments.
+                        Développeur FullStack innovant, passionné par la création de solutions.
+                        Désireux de tirer parti des technologies modernes pour résoudre des problèmes réels et contribuer à des équipes dynamiques.
                     </p>
 
                     <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto justify-center items-center">
@@ -78,7 +77,7 @@ const Hero = () => {
                             className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white
                              font-semibold py-2 sm:py-3 px-6 rounded-md transition transform hover:scale-105 hover:shadow-lg"
                         >
-                            Download CV
+                            Télécharger le CV
                         </a>
                         <button
                             onClick={() => scrollToSection('projects')}
@@ -86,7 +85,7 @@ const Hero = () => {
                              text-white hover:bg-white hover:text-indigo-600 font-semibold
                               py-2 sm:py-3 px-6 rounded-md transition transform hover:scale-105 hover:shadow-lg"
                         >
-                            View Projects
+                            Voir les projets
                         </button>
                     </div>
 
