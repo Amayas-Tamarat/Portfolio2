@@ -75,13 +75,16 @@ const Hero = () => {
                             href="/assets/Amayas_Tamarat_DÉVELOPPEUR_WEB-.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 sm:py-3 px-6 rounded-md transition transform hover:scale-105 hover:shadow-lg"
+                            className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white
+                             font-semibold py-2 sm:py-3 px-6 rounded-md transition transform hover:scale-105 hover:shadow-lg"
                         >
                             Download CV
                         </a>
                         <button
                             onClick={() => scrollToSection('projects')}
-                            className="w-full sm:w-auto border border-white text-white hover:bg-white hover:text-indigo-600 font-semibold py-2 sm:py-3 px-6 rounded-md transition transform hover:scale-105 hover:shadow-lg"
+                            className="w-full sm:w-auto border border-white
+                             text-white hover:bg-white hover:text-indigo-600 font-semibold
+                              py-2 sm:py-3 px-6 rounded-md transition transform hover:scale-105 hover:shadow-lg"
                         >
                             View Projects
                         </button>
