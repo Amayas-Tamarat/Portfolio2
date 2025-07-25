@@ -167,7 +167,7 @@ const Hero = () => {
             </div>
 
             {/* Scroll Down Button */}
-            <div className="absolute bottom-4 sm:bottom-6 flex justify-center w-full animate-bounce z-20">
+            <div className="absolute bottom-16 sm:bottom-6 flex justify-center w-full animate-bounce z-20">
                 <button
                     onClick={() => scrollToSection('about')}
                     className="text-white font-manrope text-base hover:opacity-80 transition"
