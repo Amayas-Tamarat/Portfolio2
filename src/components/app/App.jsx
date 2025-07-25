@@ -7,6 +7,7 @@ import AboutMe from "../aboutMe/AboutMe.jsx";
 import ProfessionalExp from "../professionalExp/ProfessionalExp.jsx";
 import Project from "../project/Project.jsx";
 import Footer from "../footer/Footer.jsx";
+import Contact from "../contact/Contact.jsx";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <AboutMe />
           <ProfessionalExp />
           <Project />
+          <Contact />
           <Footer />
       </div>
   )
