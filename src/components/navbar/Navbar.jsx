@@ -1,23 +1,20 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import useScrollDirection from '../../hooks/useScrollDirection';
 
 const MENU_ITEMS = [
-    {id: '#hero', label: 'Home'},
-    {id: '#about', label: 'About'},
-    {id: '#projects', label: 'Projects'},
-    {id: '#contact', label: 'Contact'},
+    { id: '#hero', label: 'Accueil' },
+    { id: '#about', label: 'À propos' },
+    { id: '#projects', label: 'Projets' },
+    { id: '#contact', label: 'Contact' },
 ];
 
 const Navbar = () => {
     const scrollDirection = useScrollDirection();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
     const menuRef = useRef(null);
     const buttonRef = useRef(null);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(prev => !prev);
-    };
+    const toggleMenu = () => setIsMenuOpen(prev => !prev);
 
     const handleClickOutside = (e) => {
         if (
@@ -43,13 +40,13 @@ const Navbar = () => {
         e.preventDefault();
         const section = document.querySelector(id);
         if (section) {
-            section.scrollIntoView({behavior: 'smooth'});
-            setIsMenuOpen(false); // close menu on click
+            section.scrollIntoView({ behavior: 'smooth' });
+            setIsMenuOpen(false);
         }
     };
 
     const renderLinks = (isMobile = false) =>
-        MENU_ITEMS.map(({id, label}) => (
+        MENU_ITEMS.map(({ id, label }) => (
             <a
                 key={id}
                 href={id}
@@ -75,9 +72,9 @@ const Navbar = () => {
             }
             `}
         >
-            {/* Left: Logo */}
+            {/* Logo */}
             <div className="flex items-center">
-                <img src="/assets/Fichier_3.png" alt="Logo" className="h-12 sm:h-16 object-contain"/>
+                <img src="/assets/Fichier_3.png" alt="Logo" className="h-12 sm:h-16 object-contain" />
             </div>
 
             {/* Desktop Nav */}
@@ -88,16 +85,16 @@ const Navbar = () => {
             {/* Burger Button */}
             <div className="md:hidden" ref={buttonRef}>
                 <button
-                    aria-label="Toggle menu"
+                    aria-label="Ouvrir le menu"
                     aria-expanded={isMenuOpen}
                     onClick={toggleMenu}
                     className="relative flex flex-col justify-center items-center w-8 h-8 focus:outline-none"
                 >
-          <span
-              className={`block absolute h-0.5 w-6 bg-white transition duration-300 ease-in-out ${
-                  isMenuOpen ? 'rotate-45 top-3' : 'top-2'
-              }`}
-          />
+                    <span
+                        className={`block absolute h-0.5 w-6 bg-white transition duration-300 ease-in-out ${
+                            isMenuOpen ? 'rotate-45 top-3' : 'top-2'
+                        }`}
+                    />
                     <span
                         className={`block absolute h-0.5 w-6 bg-white transition duration-300 ease-in-out top-4 ${
                             isMenuOpen ? 'opacity-0' : 'opacity-100'
