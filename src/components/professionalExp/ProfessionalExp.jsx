@@ -59,12 +59,14 @@ const ProfessionalExp = () => {
         <section
             id="experience"
             ref={sectionRef}
-            className="min-h-screen text-white py-20 px-6 sm:px-12 bg-gradient-to-b from-purple-950 via-zinc-900 to-black overflow-x-hidden"
+            className="min-h-screen text-white py-20 px-6 sm:px-12
+             bg-gradient-to-b from-purple-950 via-zinc-900 to-black overflow-x-hidden"
         >
             <div className="max-w-4xl mx-auto">
                 <h2
                     ref={headingRef}
-                    className="text-4xl sm:text-5xl font-bold font-playfair mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500"
+                    className="text-4xl sm:text-5xl font-bold font-playfair mb-12
+                     text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500"
                 >
                     Professional Experience
                 </h2>
@@ -76,14 +78,12 @@ const ProfessionalExp = () => {
                     {experiences.map((exp, index) => (
                         <div
                             key={index}
-                            className="exp-card bg-[#1a1a1a] border border-purple-600 p-6 rounded-xl shadow-lg relative"
+                            className="exp-card bg-[#1a1a1a] border border-purple-600 p-6 rounded-xl shadow-lg relative
+                                     overflow-hidden
+                                     before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent
+                                     before:via-white before:to-transparent before:opacity-0 before:pointer-events-none
+                                     hover:before:opacity-20 before:transition-opacity before:duration-300"
                         >
-                            {/* Timeline Dot */}
-                            <span
-                                className="absolute -left-10 top-1/2 w-5 h-5 bg-purple-400 rounded-full border-2 border-purple-600 transform -translate-y-1/2"
-                                aria-hidden="true"
-                            ></span>
-
                             <h3 className="text-2xl font-semibold text-purple-400 font-manrope">
                                 {exp.role}
                             </h3>
