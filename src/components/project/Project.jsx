@@ -25,7 +25,7 @@ const Project = () => {
     return (
         <section
             id="projects"
-            className="min-h-screen py-20 px-6 sm:px-12 bg-gradient-to-b from-black via-zinc-900 to-purple-950 text-white"
+            className=" py-20 px-6 sm:px-12 bg-gradient-to-b from-black via-zinc-900 to-purple-950 text-white"
         >
             <div className="max-w-5xl mx-auto">
                 <h2 className="text-4xl sm:text-5xl font-bold font-playfair mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500">
@@ -86,9 +86,10 @@ const Project = () => {
                             <h3 className="text-3xl font-bold text-purple-400 mb-4 font-manrope">
                                 {selectedProject.title}
                             </h3>
-                            <p className="text-gray-300 mb-6 font-manrope">
-                                {selectedProject.description}
+                            <p className="text-gray-300 mb-6 font-manrope leading-relaxed">
+                                {selectedProject.longDescription || selectedProject.description}
                             </p>
+
 
                             {/* Image Gallery */}
                             {selectedProject.images && selectedProject.images.length > 0 && (
