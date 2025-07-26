@@ -5,8 +5,8 @@ const projects = [
         longDescription:
             "BattleOffice est une application web conçue avec Symfony, permettant la création de comptes utilisateurs, la gestion d'abonnements, et l'intégration complète avec Stripe pour les paiements récurrents. Elle propose un back-office clair et sécurisé, idéal pour les services SaaS.",
         tech: ["Symfony", "Stripe", "Doctrine", "Twig"],
-        thumbnail: "/assets/battleoffice.png",
-        images: ["/assets/battleoffice.png"],
+        thumbnail: "/assets/battleOffice.PNG",
+        images: ["/assets/battleOffice2.PNG"],
         link: null,
         repo: "https://github.com/Amayas-Tamarat/BattleOffice",
     },
@@ -16,8 +16,10 @@ const projects = [
         longDescription:
             "LuxuryService est une application Symfony qui permet aux utilisateurs de créer, modifier et gérer leur profil via une interface intuitive. Elle propose également une section d'administration pour contrôler les comptes, avec un système de sécurité robuste et une architecture évolutive.",
         tech: ["Symfony", "Doctrine", "Twig", "Security"],
-        thumbnail: "/assets/luxuryservice.png",
-        images: ["/assets/luxuryservice.png"],
+        thumbnail: "/assets/luxuryservice1.PNG",
+        images: ["/assets/luxuryservice2.PNG",
+                "/assets/luxuryservice1.PNG"
+        ],
         link: null,
         repo: "https://github.com/Amayas-Tamarat/LuxuryService",
     },

@@ -48,7 +48,7 @@ const AboutMe = () => {
             ref={sectionRef}
             className="min-h-screen py-20 px-6 sm:px-12 bg-gradient-to-t from-purple-950 via-zinc-900 to-black text-white flex items-center overflow-x-hidden"
         >
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16  w-full">
                 <div ref={imageRef} className="flex flex-col items-center space-y-10">
                     <div className="relative group w-full max-w-md hover:scale-105 transition-transform duration-300">
                         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 blur-xl opacity-30 group-hover:opacity-50 transition" />
