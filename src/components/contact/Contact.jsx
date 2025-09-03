@@ -11,8 +11,14 @@ const Contact = () => {
                 Me Contacter
             </h2>
 
-            <p className="mt-6 text-lg sm:text-xl text-gray-400 text-center max-w-xl">
-                Prêt à donner vie à vos idées ? Créons quelque chose d’exceptionnel ensemble.
+            <p className="mt-6 text-lg sm:text-xl text-center max-w-xl leading-relaxed">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600 font-semibold underline decoration-purple-500 decoration-2 underline-offset-4">
+                    Vous êtes intéressé et recherchez un alternant motivé ?
+                </span>
+                <br />
+                <span className="text-gray-300">
+                    N’hésitez pas à me contacter!
+                </span>
             </p>
 
             <div className="mt-16 bg-[#1a1a1a]/70 backdrop-blur-sm border border-purple-700 rounded-2xl p-10 max-w-xl w-full space-y-10 transition duration-300 transform hover:scale-[1.015] hover:shadow-[0_0_20px_#a855f7]">

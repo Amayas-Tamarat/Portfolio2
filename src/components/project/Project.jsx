@@ -29,7 +29,7 @@ const Project = () => {
         >
             <div className="max-w-5xl mx-auto">
                 <h2 className="text-4xl sm:text-5xl font-bold font-playfair mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500">
-                    Projects
+                    Projets
                 </h2>
 
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

@@ -55,7 +55,7 @@ const Hero = () => {
                     </h1>
 
                     <DecryptedText
-                        text="Développeur Web FullStack"
+                        text="Alternant Développeur Web"
                         speed={40}
                         sequential
                         revealDirection="start"
@@ -64,9 +64,21 @@ const Hero = () => {
                         animateOn="view"
                     />
 
-                    <p className="text-white text-sm sm:text-base lg:text-lg mt-4 font-manrope max-w-xl">
-                        Développeur FullStack innovant, passionné par la création de solutions.
-                        Désireux de tirer parti des technologies modernes pour résoudre des problèmes réels et contribuer à des équipes dynamiques.
+                    <p className="text-gray-300 text-sm sm:text-base lg:text-lg mt-6 font-manrope max-w-xl leading-relaxed text-center sm:text-left">
+                        <span className="text-white font-semibold">
+                            Développeur FullStack innovant et passionné par les nouvelles technologies
+                        </span>
+                        , je conçois des solutions modernes et efficaces adaptées aux besoins réels.<br/>
+                        <span className="mt-4 text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600">
+                            Actuellement à la recherche d’une alternance pour valider ma licence, <br/>
+                        </span>
+                        je souhaite mettre mes compétences en pratique dans une équipe stimulante
+                        et collaborative.
+                        <br/>
+                        <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500 font-semibold">
+                            Mon objectif : contribuer à des projets ambitieux tout en continuant à progresser
+                            et à relever de nouveaux défis.
+                        </span>
                     </p>
 
                     <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto justify-center items-center">

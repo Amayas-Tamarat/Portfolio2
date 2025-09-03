@@ -68,7 +68,7 @@ const ProfessionalExp = () => {
                     className="text-4xl sm:text-5xl font-bold font-playfair mb-12
                      text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500"
                 >
-                    Professional Experience
+                    Expériences Professionnelle
                 </h2>
 
                 <div
