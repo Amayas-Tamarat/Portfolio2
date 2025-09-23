@@ -5,7 +5,7 @@ const Project = () => {
     const [selectedProject, setSelectedProject] = useState(null);
     const modalRef = useRef(null);
 
-    // Close modal when clicking outside
+    // Close modal when clicking outside + disable background scroll
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (modalRef.current && !modalRef.current.contains(e.target)) {
@@ -15,17 +15,23 @@ const Project = () => {
 
         if (selectedProject) {
             document.addEventListener('mousedown', handleClickOutside);
+            // Disable body scroll
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
         }
 
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
+            document.body.style.overflow = 'auto'; // Cleanup
         };
     }, [selectedProject]);
 
     return (
         <section
             id="projects"
-            className=" py-20 px-6 sm:px-12 bg-gradient-to-b from-black via-zinc-900 to-purple-950 text-white"
+            className="py-20 px-6 sm:px-12 bg-gradient-to-b from-black via-zinc-900 to-purple-950 text-white"
         >
             <div className="max-w-5xl mx-auto">
                 <h2 className="text-4xl sm:text-5xl font-bold font-playfair mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500">
@@ -89,7 +95,6 @@ const Project = () => {
                             <p className="text-gray-300 mb-6 font-manrope leading-relaxed">
                                 {selectedProject.longDescription || selectedProject.description}
                             </p>
-
 
                             {/* Image Gallery */}
                             {selectedProject.images && selectedProject.images.length > 0 && (
