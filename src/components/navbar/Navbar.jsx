@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import useScrollDirection from '../../hooks/useScrollDirection';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const MENU_ITEMS = [
     { id: '#hero', label: 'Accueil' },
@@ -9,10 +12,10 @@ const MENU_ITEMS = [
 ];
 
 const Navbar = () => {
-    const scrollDirection = useScrollDirection();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef(null);
     const buttonRef = useRef(null);
+    const navRef = useRef(null);
 
     const toggleMenu = () => setIsMenuOpen(prev => !prev);
 
@@ -36,6 +39,32 @@ const Navbar = () => {
         };
     }, [isMenuOpen]);
 
+    useEffect(() => {
+        if (!navRef.current) return;
+
+        ScrollTrigger.create({
+            start: "top top",
+            end: "bottom bottom",
+            onUpdate: (self) => {
+                if (self.direction === 1) {
+                    // Scrolling down → hide nav
+                    gsap.to(navRef.current, {
+                        y: -100,
+                        duration: 0.4,
+                        ease: "power1.out"
+                    });
+                } else {
+                    // Scrolling up → show nav
+                    gsap.to(navRef.current, {
+                        y: 0,
+                        duration: 0.4,
+                        ease: "power1.out"
+                    });
+                }
+            }
+        });
+    }, []);
+
     const scrollToSection = (id) => (e) => {
         e.preventDefault();
         const section = document.querySelector(id);
@@ -55,8 +84,8 @@ const Navbar = () => {
                     isMobile
                         ? 'uppercase text-sm tracking-wide text-purple-300 hover:text-white transition-colors duration-200'
                         : 'hover:text-white transition relative after:absolute after:left-0 after:-bottom-1 ' +
-                        'after:h-[2px] after:w-full after:bg-white after:scale-x-0 after:origin-left' +
-                        ' hover:after:scale-x-100 after:transition-transform'
+                        'after:h-[2px] after:w-full after:bg-white after:scale-x-0 after:origin-left ' +
+                        'hover:after:scale-x-100 after:transition-transform'
                 }
             >
                 {label}
@@ -65,12 +94,8 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full flex items-center justify-between px-8 py-6 z-50
-             transition-transform duration-500 bg-transparent
-              ${
-                scrollDirection === 'down' && !isMenuOpen ? '-translate-y-full' : 'translate-y-0'
-            }
-            `}
+            ref={navRef}
+            className="fixed top-0 left-0 w-full flex items-center justify-between px-8 py-6 z-50 bg-transparent"
         >
             {/* Logo */}
             <div className="flex items-center">
