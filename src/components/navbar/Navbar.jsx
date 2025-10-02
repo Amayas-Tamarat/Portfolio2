@@ -97,17 +97,14 @@ const Navbar = () => {
             ref={navRef}
             className="fixed top-0 left-0 w-full flex items-center justify-between px-8 py-6 z-50 bg-transparent"
         >
-            {/* Logo */}
             <div className="flex items-center">
                 <img src="/assets/Fichier_3.png" alt="Logo" className="h-12 sm:h-16 object-contain" />
             </div>
 
-            {/* Desktop Nav */}
             <div className="hidden md:flex space-x-8 text-xs uppercase tracking-widest text-outline">
                 {renderLinks(false)}
             </div>
 
-            {/* Burger Button */}
             <div className="md:hidden" ref={buttonRef}>
                 <button
                     aria-label="Ouvrir le menu"
@@ -133,7 +130,6 @@ const Navbar = () => {
                 </button>
             </div>
 
-            {/* Mobile Bubble Menu */}
             <div
                 ref={menuRef}
                 className={`absolute top-full right-0 w-1/2 rounded-l-3xl mr-4 bg-gradient-to-b
