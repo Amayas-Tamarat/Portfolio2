@@ -1,5 +1,16 @@
 const projects = [
     {
+        title: "Site vitrine pour une diététicienne",
+        description: "Site vitrine professionnel développé avec ReactJS et Tailwind CSS.",
+        longDescription:
+            "Reprise du site vitrine pour Céline Fougerouse, diététicienne à Andrézieux-Bouthéon. " +
+            "Le projet a consisté à optimiser le code existant, corriger divers bugs d’affichage, améliorer la lisibilité du site et développer la section contact, tout en veillant à maintenir une interface claire et cohérente avec l’identité visuelle de la cliente.",        tech: ["ReactJS", "Tailwind CSS", "JavaScript", "Responsive Design", "UX/UI Design"],
+        thumbnail: "/assets/celine.PNG",
+        images: ["https://media.discordapp.net/attachments/798210806797697035/1425363563626762310/localhost_5173_yes.png?ex=68f08b43&is=68ef39c3&hm=cbcd33ac34dd7cb94b44704fc84431ea1651c2ce5542caadfe0513ef8da89034&=&format=webp&quality=lossless&width=580&height=968",
+            "https://media.discordapp.net/attachments/798210806797697035/1425364119279767712/localhost_5173_yes_1.png?ex=68f08bc8&is=68ef3a48&hm=9f2569e098b9d5c491c77695e9c332082d1ce00bae78ba4808b079b82f102bbd&=&format=webp&quality=lossless&width=1033&height=967"],
+        link: "https://www.celinefougerouse.fr",
+    },
+    {
         title: "BattleOffice",
         description: "Application Symfony dédiée à la gestion de souscriptions avec Stripe.",
         longDescription:

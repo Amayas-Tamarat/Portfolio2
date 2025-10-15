@@ -96,16 +96,22 @@ const Project = () => {
                                 {selectedProject.longDescription || selectedProject.description}
                             </p>
 
-                            {/* Image Gallery */}
                             {selectedProject.images && selectedProject.images.length > 0 && (
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                                     {selectedProject.images.map((img, i) => (
-                                        <img
+                                        <a
                                             key={i}
-                                            src={img}
-                                            alt={`${selectedProject.title} screenshot ${i + 1}`}
-                                            className="rounded-lg w-full object-cover"
-                                        />
+                                            href={img}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="block group"
+                                        >
+                                            <img
+                                                src={img}
+                                                alt={`${selectedProject.title} screenshot ${i + 1}`}
+                                                className="rounded-lg w-full object-cover transform transition-transform duration-300 group-hover:scale-105 group-hover:brightness-110"
+                                            />
+                                        </a>
                                     ))}
                                 </div>
                             )}
@@ -127,17 +133,19 @@ const Project = () => {
                                         href={selectedProject.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-purple-400 hover:underline"
+                                        className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold px-4 py-2 rounded-md shadow-md
+                                        hover:shadow-lg hover:scale-105 transition-transform duration-300"
                                     >
-                                        Live Demo
+                                         Live Demo
                                     </a>
                                 )}
                                 {selectedProject.repo && (
                                     <a
-                                        href={selectedProject.repo}
+                                        href={selectedProject.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-purple-400 hover:underline"
+                                        className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold px-4 py-2 rounded-md shadow-md
+                                        hover:shadow-lg hover:scale-105 transition-transform duration-300"
                                     >
                                         GitHub Repo
                                     </a>
