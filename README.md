@@ -37,6 +37,10 @@ Ce portfolio est conçu pour être une vitrine de mon travail en tant que dével
 
 ## Installation
 
+### Prérequis
+- Node.js (version 14 ou supérieure)
+- npm (version 6 ou supérieure)
+
 Pour exécuter ce projet en local, suivez les étapes ci-dessous :
 
 1. **Clonez le dépôt :**
