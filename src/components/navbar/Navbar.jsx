@@ -109,7 +109,7 @@ const Navbar = () => {
                     aria-expanded={isMenuOpen}
                     aria-controls="mobile-menu"
                     onClick={toggleMenu}
-                    className="relative flex flex-col justify-center items-center w-8 h-8 focus:outline-none"
+                    className="relative flex flex-col justify-center items-center w-8 h-8 focus:ring-2 focus:ring-purple-500 focus:ring-opacity-75"
                 >
                     <span
                         className={`block absolute h-0.5 w-6 bg-white transition duration-300 ease-in-out ${
