@@ -50,7 +50,7 @@ const Project = () => {
                                     alt={project.title}
                                     className="w-full h-40 object-cover transform transition-transform duration-300 ease-out group-hover:scale-105"
                                 />
-                                <figcaption className="sr-only">{project.title} thumbnail</figcaption>
+                                <figcaption className="sr-only">Miniature du projet {project.title}</figcaption>
                             </figure>
 
                             <header>
@@ -137,7 +137,7 @@ const Project = () => {
                                         className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold px-4 py-2 rounded-md shadow-md
                                         hover:shadow-lg hover:scale-105 transition-transform duration-300"
                                     >
-                                         Live Demo
+                                         Démo Live
                                     </a>
                                 )}
                                 {selectedProject.repo && (
@@ -148,7 +148,7 @@ const Project = () => {
                                         className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold px-4 py-2 rounded-md shadow-md
                                         hover:shadow-lg hover:scale-105 transition-transform duration-300"
                                     >
-                                        GitHub Repo
+                                        Dépôt GitHub
                                     </a>
                                 )}
                             </div>
