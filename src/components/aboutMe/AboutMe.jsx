@@ -51,22 +51,26 @@ const AboutMe = () => {
         >
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 w-full">
                 <div ref={imageRef} className="flex flex-col items-center space-y-10">
-                    <figure className="relative group w-full max-w-md hover:scale-105 transition-transform duration-300">
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 blur-xl opacity-30 group-hover:opacity-50 transition" />
+                    <figure
+                        className="relative group w-full max-w-md hover:scale-105 transition-transform duration-300"
+                        role="img"
+                        aria-label="Portrait d'Amayas Tamarat, Développeur Full-Stack">
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 blur-xl opacity-30 group-hover:opacity-50 transition"/>
                         <img
                             src={img}
-                            alt="Amayas Tamarat"
+                            alt=""
                             className="relative rounded-2xl w-full object-contain shadow-2xl border-[3px] border-transparent group-hover:border-purple-500 transition"
                         />
-                        <figcaption className="sr-only">Portrait of Amayas Tamarat, Full-Stack Developer</figcaption>
                     </figure>
-                    <figure className="w-full flex justify-center">
+                    <figure
+                        className="w-full flex justify-center"
+                        role="img"
+                        aria-label="Carte des statistiques GitHub montrant les langages les plus utilisés">
                         <img
                             src="https://github-readme-stats.vercel.app/api/top-langs/?username=Amayas-Tamarat&layout=compact&theme=radical"
-                            alt="Langages les plus utilisés sur GitHub"
+                            alt=""
                             className="rounded-lg shadow-md hover:shadow-xl hover:brightness-110 transition duration-300 w-[340px] sm:w-[400px] md:w-[480px] xl:w-[540px] h-auto"
                         />
-                        <figcaption className="sr-only">GitHub stats card showing most used languages</figcaption>
                     </figure>
                 </div>
                 <div ref={textRef}>
