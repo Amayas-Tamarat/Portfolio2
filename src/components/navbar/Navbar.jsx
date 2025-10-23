@@ -97,18 +97,17 @@ const Navbar = () => {
             ref={navRef}
             className="fixed top-0 left-0 w-full flex items-center justify-between px-8 py-6 z-50 bg-transparent"
         >
-            <div className="flex items-center">
-                <img src="/assets/Fichier_3.png" alt="Logo" className="h-12 sm:h-16 object-contain" />
-            </div>
-
+            <a href="#hero" onClick={scrollToSection('#hero')} aria-label="Retour à l'accueil">
+                <img src="/assets/Fichier_3.png" alt="Logo du portfolio" className="h-12 sm:h-16 object-contain" />
+            </a>
             <div className="hidden md:flex space-x-8 text-xs uppercase tracking-widest text-outline">
                 {renderLinks(false)}
             </div>
-
             <div className="md:hidden" ref={buttonRef}>
-                <button
-                    aria-label="Ouvrir le menu"
+                                <button
+                    aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
                     aria-expanded={isMenuOpen}
+                    aria-controls="mobile-menu"
                     onClick={toggleMenu}
                     className="relative flex flex-col justify-center items-center w-8 h-8 focus:outline-none"
                 >
@@ -131,6 +130,7 @@ const Navbar = () => {
             </div>
 
             <div
+                id="mobile-menu"
                 ref={menuRef}
                 className={`absolute top-full right-0 w-1/2 rounded-l-3xl mr-4 bg-gradient-to-b
                             from-black via-zinc-900 to-purple-950 backdrop-blur-md flex flex-col items-center
