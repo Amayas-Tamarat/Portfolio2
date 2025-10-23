@@ -8,7 +8,7 @@ const Footer = () => {
                 <p className="mb-4 sm:mb-0">
                     &copy; {new Date().getFullYear()} Amayas Tamarat. Tous droits réservés.
                 </p>
-                <div className="flex space-x-6 text-gray-400">
+                <nav className="flex space-x-6 text-gray-400" aria-label="Social media links">
                     <a
                         href="https://github.com/Amayas-Tamarat"
                         target="_blank"
@@ -37,7 +37,7 @@ const Footer = () => {
                         <FiMail className="w-5 h-5" />
                         <span>Contact</span>
                     </a>
-                </div>
+                </nav>
             </div>
         </footer>
     );

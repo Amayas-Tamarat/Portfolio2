@@ -20,6 +20,7 @@ const Hero = () => {
             id="hero"
             ref={heroRef}
             className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-purple-950 via-zinc-900 to-black"
+            aria-labelledby="hero-heading"
         >
             {showSilk && (
                 <div className="absolute inset-0 z-0 pointer-events-none">
@@ -29,7 +30,7 @@ const Hero = () => {
 
             <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6 lg:px-12">
                 <div className="flex flex-col items-center text-center max-w-2xl sm:max-w-3xl">
-                    <h1 className="text-white text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 font-serif">
+                    <h1 id="hero-heading" className="text-white text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 font-serif">
                         Amayas TAMARAT
                     </h1>
 
@@ -43,22 +44,25 @@ const Hero = () => {
                         animateOn="view"
                     />
 
-                    <p className="text-gray-300 text-sm sm:text-base lg:text-lg mt-6 font-manrope max-w-xl leading-relaxed text-center sm:text-left">
-                        <span className="text-white font-semibold">
-                            Développeur FullStack innovant et passionné par les nouvelles technologies
-                        </span>
-                        , je conçois des solutions modernes et efficaces adaptées aux besoins réels.<br/>
-                        <span className="mt-4 text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600">
-                            Actuellement à la recherche d’une alternance pour valider ma licence, <br/>
-                        </span>
-                        je souhaite mettre mes compétences en pratique dans une équipe stimulante
-                        et collaborative.
-                        <br/>
-                        <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500 font-semibold">
-                            Mon objectif : contribuer à des projets ambitieux tout en continuant à progresser
-                            et à relever de nouveaux défis.
-                        </span>
-                    </p>
+                    <div className="text-gray-300 text-sm sm:text-base lg:text-lg mt-6 font-manrope max-w-xl leading-relaxed text-center sm:text-left space-y-4">
+                        <p>
+                            <strong className="text-white font-semibold">
+                                Développeur FullStack innovant et passionné par les nouvelles technologies
+                            </strong>
+                            , je conçois des solutions modernes et efficaces adaptées aux besoins réels.
+                        </p>
+                        <p>
+                            <strong className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600">
+                                Actuellement à la recherche d’une alternance pour valider ma licence, 
+                            </strong>
+                             je souhaite mettre mes compétences en pratique dans une équipe stimulante et collaborative.
+                        </p>
+                        <p>
+                            <strong className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500 font-semibold">
+                                Mon objectif : contribuer à des projets ambitieux tout en continuant à progresser et à relever de nouveaux défis.
+                            </strong>
+                        </p>
+                    </div>
 
                     <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto justify-center items-center">
                         <a

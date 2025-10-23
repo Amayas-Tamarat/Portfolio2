@@ -15,16 +15,14 @@ const Project = () => {
 
         if (selectedProject) {
             document.addEventListener('mousedown', handleClickOutside);
-            // Disable body scroll
             document.body.style.overflow = 'hidden';
         } else {
-            // Restore body scroll
             document.body.style.overflow = 'auto';
         }
 
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
-            document.body.style.overflow = 'auto'; // Cleanup
+            document.body.style.overflow = 'auto';
         };
     }, [selectedProject]);
 
@@ -32,31 +30,34 @@ const Project = () => {
         <section
             id="projects"
             className="py-20 px-6 sm:px-12 bg-gradient-to-b from-black via-zinc-900 to-purple-950 text-white"
+            aria-labelledby="projects-heading"
         >
             <div className="max-w-5xl mx-auto">
-                <h2 className="text-4xl sm:text-5xl font-bold font-playfair mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500">
+                <h2 id="projects-heading" className="text-4xl sm:text-5xl font-bold font-playfair mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500">
                     Projets
                 </h2>
 
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {projects.map((project, index) => (
-                        <div
+                        <article
                             key={index}
                             onClick={() => setSelectedProject(project)}
                             className="group cursor-pointer bg-[#1a1a1a] border border-purple-600 p-4 rounded-2xl shadow-lg hover:shadow-purple-700/40 transition-shadow"
                         >
-                            {/* Image wrapper with overflow-hidden for zoom effect */}
-                            <div className="overflow-hidden rounded-lg mb-4">
+                            <figure className="overflow-hidden rounded-lg mb-4">
                                 <img
                                     src={project.thumbnail}
                                     alt={project.title}
                                     className="w-full h-40 object-cover transform transition-transform duration-300 ease-out group-hover:scale-105"
                                 />
-                            </div>
+                                <figcaption className="sr-only">{project.title} thumbnail</figcaption>
+                            </figure>
 
-                            <h3 className="text-2xl font-semibold text-purple-400 mb-2 font-manrope">
-                                {project.title}
-                            </h3>
+                            <header>
+                                <h3 className="text-2xl font-semibold text-purple-400 mb-2 font-manrope">
+                                    {project.title}
+                                </h3>
+                            </header>
                             <p className="text-gray-300 mb-3 font-manrope line-clamp-3">
                                 {project.description}
                             </p>
@@ -71,13 +72,12 @@ const Project = () => {
                                     </span>
                                 ))}
                             </div>
-                        </div>
+                        </article>
                     ))}
                 </div>
 
-                {/* Modal */}
                 {selectedProject && (
-                    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
+                    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-labelledby="project-modal-heading">
                         <div
                             ref={modalRef}
                             className="bg-[#1a1a1a] border border-purple-600 rounded-2xl p-8 max-w-3xl w-full relative shadow-2xl overflow-y-auto max-h-[90vh]"
@@ -85,11 +85,12 @@ const Project = () => {
                             <button
                                 onClick={() => setSelectedProject(null)}
                                 className="absolute top-3 right-4 text-gray-400 hover:text-white text-2xl"
+                                aria-label="Close modal"
                             >
-                                ×
+                                &times;
                             </button>
 
-                            <h3 className="text-3xl font-bold text-purple-400 mb-4 font-manrope">
+                            <h3 id="project-modal-heading" className="text-3xl font-bold text-purple-400 mb-4 font-manrope">
                                 {selectedProject.title}
                             </h3>
                             <p className="text-gray-300 mb-6 font-manrope leading-relaxed">
